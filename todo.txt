@@ -1,0 +1,8 @@
+
+mutiple robots - Spot, Wheeled Robot
+camera lidar
+Custom map generation
+
+Controller info 
+Sequence of waypoint
+Continous/ Discrete
