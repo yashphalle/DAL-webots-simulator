@@ -1,8 +1,24 @@
-
-mutiple robots - Spot, Wheeled Robot
+Done:
+Mutiple robots - Differntial/OmniDirectional Wheeled Robot
 camera lidar
 Custom map generation
 
 Controller info 
 Sequence of waypoint
 Continous/ Discrete
+
+Multiple robots - Possible seemlessly Differntial Drive Omni Directional Drive Drone
+Camera Lidar Data - Access wai Socket 
+Default Controller - PID Controller - we can tune PID.
+Movement Commands - 1. Velocity Based  2. GPS coordinates waypoint 3. Teleop  4. Custom Controller for +x meter converting motor angle to m
+
+
+
+ToDo:
+Planner - Need to write custom planner or check NavBase
+Documentation  How to create world, robot, planner, controller 
+Waypoints algorithm 
+Drone
+Arm
+Planner 
+

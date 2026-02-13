@@ -1,5 +1,3 @@
-"""Drive robot between waypoints using mecanum strafe. Loops forever."""
-
 from controller import Supervisor
 import math
 
@@ -10,28 +8,20 @@ WAYPOINTS = [
 
 DISTANCE_TOLERANCE = 0.30
 SPEED = 5.0
+TURN_GAIN = 8.0
 
 robot = Supervisor()
 timestep = int(robot.getBasicTimeStep())
 robot_node = robot.getSelf()
 robot_name = robot.getName()
 
-is_youbot = "youBot" in robot_name or "Youbot" in robot_name
-is_pioneer = "Pioneer" in robot_name
-
-if is_youbot:
-    wheels = [robot.getDevice(f'wheel{i}') for i in range(1, 5)]
-    print("Waypoint: Youbot (mecanum strafe).")
-elif is_pioneer:
-    wheels = [
-        robot.getDevice('front left wheel'),
-        robot.getDevice('front right wheel'),
-        robot.getDevice('back left wheel'),
-        robot.getDevice('back right wheel'),
-    ]
-    print("Waypoint: Pioneer (differential).")
-else:
-    raise RuntimeError(f"Unknown robot '{robot_name}'.")
+wheels = [
+    robot.getDevice('front left wheel'),
+    robot.getDevice('front right wheel'),
+    robot.getDevice('back left wheel'),
+    robot.getDevice('back right wheel'),
+]
+print(f"Waypoint Pioneer: [{robot_name}]")
 
 for w in wheels:
     w.setPosition(float('inf'))
@@ -57,7 +47,14 @@ def stop():
         w.setVelocity(0.0)
 
 
-# --- Heading calibration (auto-detect forward direction) ---
+def set_differential(left, right):
+    wheels[0].setVelocity(left)
+    wheels[1].setVelocity(right)
+    wheels[2].setVelocity(left)
+    wheels[3].setVelocity(right)
+
+
+# --- Heading calibration ---
 print("Calibrating heading...")
 pos_before = robot_node.getPosition()
 heading_before = get_heading()
@@ -77,25 +74,6 @@ print(f"  Heading offset: {math.degrees(HEADING_OFFSET):.1f} deg")
 
 def corrected_heading():
     return get_heading() + HEADING_OFFSET
-
-
-def set_mecanum(vx, vy, vrot):
-    """Drive Youbot: vx=forward, vy=strafe-left, vrot=CCW rotation."""
-    w1 = vx + vy - vrot
-    w2 = vx - vy + vrot
-    w3 = vx - vy - vrot
-    w4 = vx + vy + vrot
-    wheels[0].setVelocity(w1)
-    wheels[1].setVelocity(w2)
-    wheels[2].setVelocity(w3)
-    wheels[3].setVelocity(w4)
-
-
-def set_differential(left, right):
-    wheels[0].setVelocity(left)
-    wheels[1].setVelocity(right)
-    wheels[2].setVelocity(left)
-    wheels[3].setVelocity(right)
 
 
 # --- Navigation ---
@@ -124,20 +102,18 @@ while robot.step(timestep) != -1:
 
     world_angle = math.atan2(dy, dx)
     heading = corrected_heading()
-    local_angle = world_angle - heading
+    err = angle_diff(heading, world_angle)
 
-    if is_youbot:
-        vx = SPEED * math.cos(local_angle)
-        vy = SPEED * math.sin(local_angle)
-        set_mecanum(vx, vy, 0)
+    # Pioneer turn: fl=-s, fr=+s = turn left (from robot_drivers.py)
+    # So set_differential(-turn, +turn) where positive turn = turn left
+    turn = max(-SPEED, min(SPEED, TURN_GAIN * err))
+
+    if abs(err) > 0.4:
+        set_differential(-turn, turn)
     else:
-        err = angle_diff(heading, world_angle)
-        turn = max(-SPEED, min(SPEED, -8.0 * err))
-        if abs(err) > 0.4:
-            set_differential(-turn, turn)
-        else:
-            set_differential(SPEED + turn * 0.3, SPEED - turn * 0.3)
+        set_differential(SPEED - turn * 0.3, SPEED + turn * 0.3)
 
     if step_count % 100 == 0:
         print(f"  wp={wp_index} pos=({x:.2f},{y:.2f}) dist={distance:.2f} "
-              f"angle_to_target={math.degrees(local_angle):.0f}")
+              f"heading={math.degrees(heading):.0f} desired={math.degrees(world_angle):.0f} "
+              f"err={math.degrees(err):.1f}")
