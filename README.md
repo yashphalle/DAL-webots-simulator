@@ -27,6 +27,18 @@ DAL/
 
 
 
+## Prerequisites
+
+- [Webots R2025a](https://cyberbotics.com/) (exact version required)
+- Python 3.7+
+
+Install Python dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+---
+
 ## Quick Start
 
 1. Open `worlds/DAL.wbt` in Webots and start the simulation.
