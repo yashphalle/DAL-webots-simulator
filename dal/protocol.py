@@ -42,3 +42,37 @@ def pack_camera(robot_id, width, height, rgb_bytes):
 
 def unpack_camera_header(data):
     return struct.unpack_from(CAMERA_HEADER_FMT, data)
+
+
+# Waypoint command protocol (TCP, text-based)
+WAYPOINT_PORT = 6000
+
+def send_waypoint_command(sock, x, y):
+    """Send waypoint command to controller: 'WAYPOINT x y\\n'"""
+    msg = f"WAYPOINT {x} {y}\n"
+    sock.sendall(msg.encode('utf-8'))
+
+def send_reached_ack(sock, x, y):
+    """Send reached acknowledgment to planner: 'REACHED x y\\n'"""
+    msg = f"REACHED {x} {y}\n"
+    sock.sendall(msg.encode('utf-8'))
+
+def parse_waypoint_command(line):
+    """Parse 'WAYPOINT x y' -> (x, y) or None if invalid"""
+    parts = line.strip().split()
+    if len(parts) == 3 and parts[0] == "WAYPOINT":
+        try:
+            return (float(parts[1]), float(parts[2]))
+        except ValueError:
+            return None
+    return None
+
+def parse_reached_ack(line):
+    """Parse 'REACHED x y' -> (x, y) or None if invalid"""
+    parts = line.strip().split()
+    if len(parts) == 3 and parts[0] == "REACHED":
+        try:
+            return (float(parts[1]), float(parts[2]))
+        except ValueError:
+            return None
+    return None
