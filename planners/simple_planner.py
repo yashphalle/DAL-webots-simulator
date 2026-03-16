@@ -7,7 +7,7 @@ import socket
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, project_root)
 
-from dal.protocol import (
+from utils.protocol import (
     WAYPOINT_PORT,
     send_waypoint_command,
     parse_reached_ack

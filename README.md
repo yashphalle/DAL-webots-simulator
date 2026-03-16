@@ -1,140 +1,90 @@
-# DAL Simulator Package
+# DAL Webots Simulator
+
+A multi-robot simulation framework built on [Webots R2025a](https://cyberbotics.com/). Supports autonomous waypoint navigation, LIDAR-based occupancy grid mapping, and real-time visualization for KUKA YouBot and Pioneer 3-AT robots.
+
+Designed as a standardized base for robotics research studies. Study-specific code (planners, controllers, worlds) lives in `study/*` branches.
+
+---
+
+## Quick Start
+
+**Requirements:** Webots R2025a, Python 3.7+
+
+```bash
+pip install -r requirements.txt
+```
+
+1. Open `worlds/DAL.wbt` in Webots and press Play
+2. `python tools/visualizer.py`
+3. Drive with keyboard (controller: `dal_controller`) or run `python planners/simple_planner.py` (controller: `waypoint_controller`)
+
+See [docs/getting_started.md](docs/getting_started.md) for full setup instructions.
 
 ---
 
 ## Repository Structure
 
 ```
-DAL/
-├── worlds/
-│   └── DAL.wbt                # Webots world (factory, robots, sensors)
-├── controllers/               # Run INSIDE Webots - control robots
-│   ├── dal_controller/        # Teleop + LIDAR/camera/position streaming
-│   ├── youbot_dal/            # Teleop + position-only streaming
-│   ├── waypoint_sample/       # Drive to hardcoded waypoints
-│   └── waypoint_controller/   # Receives waypoints from planner (TCP)
-├── planners/                  # Run on HOST - send waypoints to controllers
-│   └── simple_planner.py      # Sends 4 waypoints one-at-a-time
-├── tools/                     # Run on HOST - monitoring/visualization
-│   ├── visualizer.py          # 2D occupancy grid + robot positions (UDP)
-│   ├── camera_viewer.py       # Live camera window (UDP)
-│   └── grid_visualization.py  # Alternative grid display
-└── dal/                       # Shared library (protocol, occupancy grid)
-    ├── protocol.py            # Ports, packet formats (position, camera, waypoints)
-    └── occupancy_grid.py      # Log-odds grid, LIDAR ray casting, cell freeze
-```
-
-- **controllers/**: Run inside Webots. Control robots directly. Assigned in world file.
-- **planners/**: Run on host. Send waypoints to controllers via TCP.
-- **tools/**: Run on host. Monitor sensors via UDP (passive, read-only).
-- **dal/**: Shared library used by all components.
-
-
-
-## Prerequisites
-
-- [Webots R2025a](https://cyberbotics.com/) (exact version required)
-- Python 3.7+
-
-Install Python dependencies:
-```bash
-pip install -r requirements.txt
+DAL-webots-simulator/
+├── worlds/                     Webots world files (.wbt)
+├── controllers/                Run INSIDE Webots — robot control scripts
+│   ├── dal_controller/         Teleop + full sensor streaming
+│   ├── waypoint_controller/    Autonomous nav via TCP planner
+│   ├── waypoint_pioneer/       Pioneer-specific waypoint nav
+│   ├── youbot_dal/             Minimal teleop + position streaming
+│   └── dronecontroller/        Mavic 2 Pro drone PID controller
+├── planners/                   Run on HOST — mission logic
+│   └── simple_planner.py       Sequential hardcoded waypoints
+├── tools/                      Run on HOST — monitoring (read-only)
+│   ├── visualizer.py           2D occupancy grid + robot positions
+│   ├── camera_viewer.py        Live camera feed window
+│   └── grid_visualization.py   Simple position-only grid overlay
+├── utils/                      Shared library (protocol, occupancy grid)
+│   ├── protocol.py             Ports, packet formats, message helpers
+│   └── occupancy_grid.py       Log-odds grid, Bresenham ray casting
+├── docs/                       Documentation
+└── requirements.txt
 ```
 
 ---
 
-## Quick Start
+## Network Ports
 
-1. Open `worlds/DAL.wbt` in Webots and start the simulation.
-2. **Terminal 1** (from project root):
-   ```bash
-   python tools/visualizer.py
-   ```
-   Shows 2D occupancy grid and Youbot/Pioneer positions; uses LIDAR from Youbot.
-3. **Terminal 2** (optional):
-   ```bash
-   python tools/camera_viewer.py
-   ```
-   Shows live camera feed. Press `q` in the window to quit.
-4. In Webots, focus the 3D view and drive:
-   - **Youbot**: Arrow keys + Q/E (rotate).
-   - **Pioneer**: Numpad 8/2/4/6 (forward/back/turn).
-
-For position-only display (no LIDAR), use `grid_visualization.py` and the `youbot_dal` controller.
+| Port | Transport | Content |
+|------|-----------|---------|
+| 5555 | UDP | Position + heading + LIDAR ranges |
+| 5556 | UDP | Camera RGB frames |
+| 6000 | TCP | Waypoint commands for YouBot (ROBOT_ID=0) |
+| 6001 | TCP | Waypoint commands for Pioneer (ROBOT_ID=1) |
 
 ---
 
-## Ports (dal/protocol.py)
+## Documentation
 
-| Port   | Usage                          |
-|--------|--------------------------------|
-| 5555   | UDP: position + heading + LIDAR |
-| 5556   | UDP: camera RGB                 |
-| 6000   | TCP: waypoint commands (YouBot) |
-| 6001   | TCP: waypoint commands (Pioneer)|
+| Document | Description |
+|----------|-------------|
+| [docs/architecture.md](docs/architecture.md) | System design, communication diagram, packet formats |
+| [docs/getting_started.md](docs/getting_started.md) | Installation, first run, troubleshooting |
+| [docs/adding_a_world.md](docs/adding_a_world.md) | Creating and configuring Webots worlds |
+| [docs/adding_a_robot.md](docs/adding_a_robot.md) | Adding new robot types and drivers |
+| [docs/adding_a_controller.md](docs/adding_a_controller.md) | Writing controllers that run inside Webots |
+| [docs/adding_a_planner.md](docs/adding_a_planner.md) | Writing host-side planners |
+| [docs/adding_a_sensor.md](docs/adding_a_sensor.md) | Enabling and reading LIDAR, camera, IMU, GPS |
+| [docs/using_visualizer.md](docs/using_visualizer.md) | Visualizer configuration and extension |
+| [docs/branching_for_study.md](docs/branching_for_study.md) | How to create a `study/*` branch for research |
+
+---
+
+## Study Branches
+
+| Branch | Description | Extra deps |
+|--------|-------------|------------|
+| `study/ltl-exploration` | LTL temporal logic multi-robot exploration | `spot`, `buddy`, `pupil-apriltags` (Linux) |
+
+To start a new study, see [docs/branching_for_study.md](docs/branching_for_study.md).
 
 ---
 
-## Planner-Controller Architecture (NEW)
+## Known Issues
 
-The **waypoint_controller** and **simple_planner** provide a separation between planning (deciding where to go) and control (driving the robot).
-
-### How It Works
-
-```
-┌──────────────────┐   TCP    ┌─────────────────────┐
-│  Planner (host)  │ :6000    │ Controller (Webots) │
-│  simple_planner  ├─────────>│ waypoint_controller │
-│                  │ WAYPOINT │                     │
-│  Sends waypoints │<─────────┤ Navigates robot     │
-│  one at a time   │ REACHED  │ Streams sensors     │
-└──────────────────┘          └─────────────────────┘
-```
-
-**Controller** (runs inside Webots):
-- Opens TCP server on port 6000 (YouBot) or 6001 (Pioneer)
-- Waits for planner to connect and send waypoints
-- Navigates robot to each waypoint
-- Sends "REACHED" acknowledgment when goal is reached
-- Continues streaming position/LIDAR/camera over UDP
-
-**Planner** (runs on host):
-- Connects to controller via TCP
-- Has a list of waypoints to visit
-- Sends waypoints ONE at a time
-- Waits for "REACHED" before sending next waypoint
-
-### Usage
-
-**Terminal 1 - Start Webots:**
-1. Open `worlds/DAL.wbt` in Webots
-2. Assign `waypoint_controller` to a robot's controller field
-3. Start simulation
-
-**Terminal 2 - Run Visualizer (optional):**
-```bash
-python tools/visualizer.py
-```
-
-**Terminal 3 - Run Planner:**
-```bash
-python planners/simple_planner.py
-```
-
-The planner will send 4 hardcoded waypoints to the robot one at a time. Edit `WAYPOINTS` in [simple_planner.py](planners/simple_planner.py) to customize the waypoint list. Edit `ROBOT_ID` to control a different robot (0=YouBot, 1=Pioneer).
-
-### Protocol
-
-Simple text-based protocol over TCP:
-
-**Planner → Controller:**
-```
-WAYPOINT <x> <y>\n
-```
-
-**Controller → Planner:**
-```
-REACHED <x> <y>\n
-```
-
----
+- Controllers still import `from dal.protocol` (old folder name). Until fixed, create a symlink: `ln -s utils dal` from the project root. See [docs/getting_started.md](docs/getting_started.md).

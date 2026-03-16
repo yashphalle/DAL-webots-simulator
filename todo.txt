@@ -1,3 +1,11 @@
+ToDo:
+Documentation  How to create world, robot, planner, controller 
+Continous Waypoints algorithm 
+ROS2 support branch
+
+
+Arm
+
 Done:
 Mutiple robots - Differntial/OmniDirectional Wheeled Robot
 camera lidar
@@ -11,14 +19,5 @@ Multiple robots - Possible seemlessly Differntial Drive Omni Directional Drive D
 Camera Lidar Data - Access wai Socket 
 Default Controller - PID Controller - we can tune PID.
 Movement Commands - 1. Velocity Based  2. GPS coordinates waypoint 3. Teleop  4. Custom Controller for +x meter converting motor angle to m
-
-
-
-ToDo:
 Planner - Need to write custom planner or check NavBase
-Documentation  How to create world, robot, planner, controller 
-Waypoints algorithm 
 Drone
-Arm
-Planner 
-

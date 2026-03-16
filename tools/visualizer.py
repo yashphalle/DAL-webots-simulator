@@ -16,8 +16,8 @@ import matplotlib.colors as mcolors
 import numpy as np
 import socket
 
-from dal.protocol import POSITION_PORT, unpack_position
-from dal.occupancy_grid import OccupancyGrid
+from utils.protocol import POSITION_PORT, unpack_position
+from utils.occupancy_grid import OccupancyGrid
 
 FLOOR_WIDTH = 6.95
 FLOOR_HEIGHT = 22.54

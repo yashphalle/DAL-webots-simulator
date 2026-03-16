@@ -7,7 +7,7 @@ import numpy as np
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from dal.protocol import CAMERA_PORT, CAMERA_HEADER_SIZE, unpack_camera_header
+from utils.protocol import CAMERA_PORT, CAMERA_HEADER_SIZE, unpack_camera_header
 
 try:
     import cv2

@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 from controller import Supervisor, Keyboard
 from robot_drivers import get_driver
-from dal.protocol import (
+from utils.protocol import (
     POSITION_PORT, CAMERA_PORT,
     pack_position, pack_camera,
     CAMERA_HEADER_SIZE
