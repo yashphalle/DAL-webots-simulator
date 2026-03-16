@@ -1,0 +1,3904 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/ThreadMetalPlate.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/apartment_structure/protos/Door.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/GlossyPaint.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/obstacles/protos/OilBarrel.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/robotis/darwin-op/protos/Darwin-op.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/sony/aibo/protos/AiboErs7.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/pipes/protos/LJoint.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/tools/protos/Wrench.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/tools/protos/Hammer.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/pallet/protos/WoodenPallet.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/tables/protos/Table.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/containers/protos/CardboardBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/tools/protos/PaintBucket.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/tools/protos/Screwdriver.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/pallet/protos/WoodenPalletStack.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/valves/protos/LeverValve.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/valves/protos/LargeValve.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/pipes/protos/PipeSection.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/valves/protos/SmallValve.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/apartment_structure/protos/Wall.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Roughcast.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/cabinet/protos/Cabinet.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/hospital/protos/EmergencyExitSign.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/stairs/protos/StraightStairsRail.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/stairs/protos/StraightStairs.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/kuka/youbot/protos/Youbot.proto"
+
+WorldInfo {
+  contactProperties [
+    ContactProperties {
+      material1 "InteriorWheelMat"
+      coulombFriction [
+        0, 2, 0
+      ]
+      frictionRotation -0.785398 0
+      bounce 0
+      forceDependentSlip [
+        10, 0
+      ]
+    }
+    ContactProperties {
+      material1 "ExteriorWheelMat"
+      coulombFriction [
+        0, 2, 0
+      ]
+      frictionRotation 0.785398 0
+      bounce 0
+      forceDependentSlip [
+        10, 0
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation 0.007787611195436808 0.9998259341656275 -0.016954482643216716 0.8609311566010022
+  position -7.191898471332919 -0.32896581750266407 7.67619776638967
+}
+TexturedBackground {
+  texture "empty_office"
+}
+PointLight {
+  attenuation 0 0 1
+  intensity 10.8
+  location -4 6 5
+  castShadows TRUE
+}
+PointLight {
+  attenuation 0 0 1
+  intensity 9.6
+  location 5 6 5
+}
+Floor {
+  translation 0 -6.0 0
+  name "floor(1)"
+  size 21.2 21.0
+  tileSize 1 1
+  appearance ThreadMetalPlate {
+  }
+}
+Door {
+  hidden translation_5 0.0012129898107249848 6.675909700981641e-05 4.440892098500626e-16
+  hidden rotation_5 0 0 -1 0.00044836808601789267
+  translation 10.54 -4 3.27
+  rotation 0 0 1 3.141592
+  name "door(1)"
+  position -0.00044836808596317157
+  doorAppearance GlossyPaint {
+    baseColor 0.16 0.16 0.16
+  }
+  frameAppearance GlossyPaint {
+    baseColor 0.35 0.3503166247043564 0.35
+  }
+}
+Door {
+  hidden translation_5 0.0012129898107249848 6.675909700987193e-05 4.440892098500626e-16
+  hidden rotation_5 0 0 -1 0.00044836808601789267
+  translation -10.55 0 0.02
+  position -0.0004483680859631709
+  doorAppearance GlossyPaint {
+    baseColor 0.16 0.16 0.16
+  }
+  frameAppearance GlossyPaint {
+    baseColor 0.35 0.3503166247043564 0.35
+  }
+}
+Floor {
+  translation 0 -4.22 7
+  rotation 1 0 0 3.141592
+  size 21.2 17.4
+  tileSize 1 1
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/default/worlds/textures/asphalt.jpg"
+      ]
+    }
+    roughness 1
+    metalness 0
+  }
+}
+
+
+Wall {
+  translation 0 4.82 0
+  name "wall(1)"
+  size 21.2 0.2 7
+  appearance Roughcast {
+    textureTransform TextureTransform {
+      scale 5.3 1.75
+    }
+  }
+}
+Cabinet {
+  translation -0.46 4.84 0
+  rotation 0 0 1 -1.5707963267948966
+  name "cabinet(1)"
+  columnsWidths [
+    1.3, 0.17, 0.17
+  ]
+  layout [
+    "Shelf (1, 5, 3, 0)"
+    "Shelf (1, 4, 3, 0)"
+    "Shelf (1, 3, 3, 0)"
+    "Shelf (1, 2, 3, 0)"
+  ]
+}
+Cabinet {
+  hidden position_6_0 4.799575459692575e-05
+  hidden translation_7 -2.3877887902803065e-05 -5.73018910099421e-10 0
+  hidden rotation_7 0 0 1 4.799575889723063e-05
+  hidden position_10_0 -4.799575459514797e-05
+  hidden translation_11 -2.3877887901918617e-05 5.73018910099421e-10 0
+  hidden rotation_11 0 0 -1 4.799575889723063e-05
+  translation 1.49 4.84 0
+  rotation 0 0 1 -1.5707963267948966
+  columnsWidths [
+    1, 1
+  ]
+  layout [
+    "RightSidedDoor (1, 1, 1, 5, 1.5)"
+    "LeftSidedDoor (2, 1, 1, 5, 1.5)"
+  ]
+}
+Wall {
+  translation 0 -16.5 0
+  name "wall(2)"
+  size 21.2 0.2 7
+  appearance Roughcast {
+    textureTransform TextureTransform {
+      scale 5.3 1.75
+    }
+  }
+
+}
+Wall {
+  translation -10.5 -6.0 0
+  rotation 0 0 1 1.5708
+  name "wall(3)"
+  size 21.2 0.2 7
+  appearance Roughcast {
+    textureTransform TextureTransform {
+      scale 5.3 1.725
+    }
+  }
+}
+Wall {
+  translation 10.5 -6.0 0
+  rotation 0 0 1 -1.5708
+  size 21.2 0.2 7
+  appearance Roughcast {
+    textureTransform TextureTransform {
+      scale 5.3 1.725
+    }
+  }
+}
+EmergencyExitSign {
+  translation 9.82 -4.02 5.45
+  rotation 0.5773509358560258 -0.577349935856137 -0.577349935856137 2.09439
+}
+EmergencyExitSign {
+  translation -9.83 -0.01 2.3
+  rotation 0.5773489358550934 0.5773519358547601 0.5773499358549823 2.0944
+  name "emergency exit sign(1)"
+}
+Solid {
+  translation -10.37 -6.36 4.13
+  rotation 0.7071067811865476 0 0.7071067811865476 3.141592
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.8 0.8 0.8
+        baseColorMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/default/worlds/textures/ladybug.png"
+          ]
+          filtering 5
+        }
+        transparency 0.6
+        roughness 0.5
+        metalness 0
+        textureTransform TextureTransform {
+          rotation 1.5708
+        }
+      }
+      geometry Plane {
+        size 5 5
+      }
+    }
+  ]
+  name "solid(3)"
+}
+Solid {
+  translation 9.75 -3.95 3.21
+  rotation 1 0 0 1.5707963267948966
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.8 0.8 0.8
+        baseColorMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/default/worlds/textures/steel_floor.jpg"
+          ]
+        }
+        roughness 0.5
+        metalness 0
+        textureTransform TextureTransform {
+          scale 2 2
+        }
+      }
+      geometry Box {
+        size 1.5 0.12 2.6
+      }
+    }
+  ]
+}
+StraightStairsRail {
+  translation 8.52 -2.73 3.27
+  rotation 0 0 1 -1.5708
+  name "straight stairs rail(1)"
+  run 2.5
+  rise 0
+  newelHeight 0.89
+  balusterHeight 0.9
+  nBalusters 9
+  appearance PBRAppearance {
+    baseColor 0.8 0.8 0.8
+    roughness 0.5
+    metalness 0
+    textureTransform TextureTransform {
+      rotation 1.5708
+    }
+  }
+}
+StraightStairsRail {
+  translation 8.57 -5.23 3.27
+  run 1.3
+  rise 0
+  newelHeight 0.89
+  balusterHeight 0.9
+  nBalusters 5
+  appearance PBRAppearance {
+    baseColor 0.8 0.8 0.8
+    roughness 0.5
+    metalness 0
+    textureTransform TextureTransform {
+      rotation 1.5708
+    }
+  }
+}
+StraightStairs {
+  translation 9.201 0.17 0
+  rotation 0 0 1 -1.5708
+  stepSize 0.3 1.34 0.01
+  stepRise 0.297
+  nSteps 10
+  stepAppearance PBRAppearance {
+    baseColor 0.8 0.8 0.8
+    roughness 0.5
+    metalness 0
+    textureTransform TextureTransform {
+      rotation 1.5708
+      scale 3 1
+    }
+  }
+  stringerAppearance PBRAppearance {
+    baseColor 0.8 0.8 0.8
+    roughness 0.5
+    metalness 0
+    textureTransform TextureTransform {
+      rotation 1.5708
+      scale 3 3
+    }
+  }
+  leftRail []
+  rightRail [
+    StraightStairsRail {
+      run 3
+      rise 2.97
+      newelHeight 0.862
+      balusterHeight 0.83
+      nBalusters 12
+      appearance PBRAppearance {
+        baseColor 0.8 0.8 0.8
+        roughness 0.5
+        metalness 0
+        textureTransform TextureTransform {
+          rotation 1.5708
+        }
+      }
+    }
+  ]
+}
+DEF YOUBOT_1 Youbot {
+  translation -7 -9.16 0.011
+  rotation 0 0 1 1.5708
+  name "youBot_1"
+  controller "<void>"
+  supervisor TRUE
+  bodySlot [
+    Camera {
+      translation 0.2 0 0.05
+      fieldOfView 1.5708
+      width 1280
+      height 720
+    }
+    Lidar {
+      translation 0.30 0 0.15
+      name "LDS-01"
+      horizontalResolution 360
+      fieldOfView 6.2832
+      verticalFieldOfView 0.05
+      numberOfLayers 1
+      minRange 0.05
+      maxRange 5.0
+      noise 0.01
+    }
+  ]
+}
+DEF YOUBOT_2 Youbot {
+  translation 2.97 -7.11 0.011
+  rotation 0 0 1 1.5708
+  name "youBot_2"
+  controller "waypoint_controller"
+  supervisor TRUE
+  bodySlot [
+    Camera {
+      translation 0.2 0 0.05
+      fieldOfView 1.5708
+      width 1280
+      height 720
+    }
+    Lidar {
+      translation 0.30 0 0.15
+      name "LDS-01"
+      horizontalResolution 360
+      fieldOfView 6.2832
+      verticalFieldOfView 0.05
+      numberOfLayers 1
+      minRange 0.05
+      maxRange 5.0
+      noise 0.01
+    }
+  ]
+}
+DEF CELL_TAG_50 Transform {
+  translation 0.0 1.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_70 Transform {
+  translation 0.0 0.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_175 Transform {
+  translation 5.0 -4.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+
+DEF CELL_TAG_10 Transform {
+  translation 0.0 3.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_11 Transform {
+  translation 1.0 3.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_12 Transform {
+  translation 2.0 3.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_13 Transform {
+  translation 3.0 3.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_14 Transform {
+  translation 4.0 3.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_30 Transform {
+  translation 0.0 2.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_31 Transform {
+  translation 1.0 2.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_32 Transform {
+  translation 2.0 2.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_33 Transform {
+  translation 3.0 2.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_34 Transform {
+  translation 4.0 2.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_51 Transform {
+  translation 1.0 1.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.0 0.7 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_52 Transform {
+  translation 2.0 1.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_53 Transform {
+  translation 3.0 1.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_54 Transform {
+  translation 4.0 1.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_60 Transform {
+  translation -1.0 2.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.8 0.1 0.1
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_71 Transform {
+  translation 1.0 0.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_72 Transform {
+  translation 2.0 0.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_73 Transform {
+  translation 3.0 0.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_74 Transform {
+  translation 4.0 0.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_90 Transform {
+  translation 0.0 -0.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_91 Transform {
+  translation 1.0 -0.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_92 Transform {
+  translation 2.0 -0.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_93 Transform {
+  translation 3.0 -0.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_94 Transform {
+  translation 4.0 -0.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_100 Transform {
+  translation -10.0 -1.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_101 Transform {
+  translation -9.0 -1.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_102 Transform {
+  translation -8.0 -1.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_103 Transform {
+  translation -7.0 -1.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_104 Transform {
+  translation -6.0 -1.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_110 Transform {
+  translation 0.0 -1.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_111 Transform {
+  translation 1.0 -1.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_112 Transform {
+  translation 2.0 -1.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_113 Transform {
+  translation 3.0 -1.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_114 Transform {
+  translation 4.0 -1.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_120 Transform {
+  translation -10.0 -2.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_121 Transform {
+  translation -9.0 -2.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_122 Transform {
+  translation -8.0 -2.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_123 Transform {
+  translation -7.0 -2.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.0 0.7 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_124 Transform {
+  translation -6.0 -2.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_140 Transform {
+  translation -10.0 -3.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_141 Transform {
+  translation -9.0 -3.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_142 Transform {
+  translation -8.0 -3.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_143 Transform {
+  translation -7.0 -3.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_144 Transform {
+  translation -6.0 -3.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_160 Transform {
+  translation -10.0 -4.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_161 Transform {
+  translation -9.0 -4.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_162 Transform {
+  translation -8.0 -4.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_163 Transform {
+  translation -7.0 -4.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_164 Transform {
+  translation -6.0 -4.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_174 Transform {
+  translation 4.0 -4.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_180 Transform {
+  translation -10.0 -5.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_181 Transform {
+  translation -9.0 -5.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_182 Transform {
+  translation -8.0 -5.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_183 Transform {
+  translation -7.0 -5.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_184 Transform {
+  translation -6.0 -5.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_194 Transform {
+  translation 4.0 -5.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_195 Transform {
+  translation 5.0 -5.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_200 Transform {
+  translation -10.0 -6.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_201 Transform {
+  translation -9.0 -6.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_202 Transform {
+  translation -8.0 -6.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_203 Transform {
+  translation -7.0 -6.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_204 Transform {
+  translation -6.0 -6.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_214 Transform {
+  translation 4.0 -6.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_215 Transform {
+  translation 5.0 -6.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_283 Transform {
+  translation -7.0 -10.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.0 0.7 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_284 Transform {
+  translation -6.0 -10.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.0 0.3 0.85
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_285 Transform {
+  translation -5.0 -10.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_286 Transform {
+  translation -4.0 -10.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_287 Transform {
+  translation -3.0 -10.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_303 Transform {
+  translation -7.0 -11.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_304 Transform {
+  translation -6.0 -11.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_305 Transform {
+  translation -5.0 -11.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_306 Transform {
+  translation -4.0 -11.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_307 Transform {
+  translation -3.0 -11.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_315 Transform {
+  translation 5.0 -11.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_316 Transform {
+  translation 6.0 -11.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_317 Transform {
+  translation 7.0 -11.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_318 Transform {
+  translation 8.0 -11.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_319 Transform {
+  translation 9.0 -11.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_323 Transform {
+  translation -7.0 -12.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_324 Transform {
+  translation -6.0 -12.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_325 Transform {
+  translation -5.0 -12.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_326 Transform {
+  translation -4.0 -12.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_327 Transform {
+  translation -3.0 -12.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_335 Transform {
+  translation 5.0 -12.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_336 Transform {
+  translation 6.0 -12.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_337 Transform {
+  translation 7.0 -12.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_338 Transform {
+  translation 8.0 -12.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_339 Transform {
+  translation 9.0 -12.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_355 Transform {
+  translation 5.0 -13.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_356 Transform {
+  translation 6.0 -13.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_357 Transform {
+  translation 7.0 -13.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_358 Transform {
+  translation 8.0 -13.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_359 Transform {
+  translation 9.0 -13.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_375 Transform {
+  translation 5.0 -14.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_376 Transform {
+  translation 6.0 -14.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_377 Transform {
+  translation 7.0 -14.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_378 Transform {
+  translation 8.0 -14.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_379 Transform {
+  translation 9.0 -14.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_395 Transform {
+  translation 5.0 -15.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_396 Transform {
+  translation 6.0 -15.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_397 Transform {
+  translation 7.0 -15.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_398 Transform {
+  translation 8.0 -15.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_399 Transform {
+  translation 9.0 -15.1 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1.0 0.9 0.0
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF YOUBOT_0 Youbot {
+  translation 7.01 3.79 0.099
+  rotation 0 0 1 1.5708
+  name "youBot_0"
+  controller "<void>"
+  supervisor TRUE
+  bodySlot [
+    Camera {
+      translation 0.2 0 0.05
+      fieldOfView 1.5708
+      width 1280
+      height 720
+    }
+    Lidar {
+      translation 0.30 0 0.15
+      name "LDS-01"
+      horizontalResolution 360
+      fieldOfView 6.2832
+      verticalFieldOfView 0.05
+      numberOfLayers 1
+      minRange 0.05
+      maxRange 5.0
+      noise 0.01
+    }
+  ]
+}
+DEF CELL_TAG_37 Transform {
+  translation 7.0 2.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.91 0.31 0.54
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF CELL_TAG_36 Transform {
+  translation 6.0 2.9 0.011
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.3 0.0 0.7
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.92 0.92 0.02
+      }
+    }
+  ]
+}
+DEF TAG_50 Transform {
+  translation 0.0 1.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_70 Transform {
+  translation 0.0 0.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_175 Transform {
+  translation 5.0 -4.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_10 Transform {
+  translation 0.0 3.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_11 Transform {
+  translation 1.0 3.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_12 Transform {
+  translation 2.0 3.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_13 Transform {
+  translation 3.0 3.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_14 Transform {
+  translation 4.0 3.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_30 Transform {
+  translation 0.0 2.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_31 Transform {
+  translation 1.0 2.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_32 Transform {
+  translation 2.0 2.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_33 Transform {
+  translation 3.0 2.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_34 Transform {
+  translation 4.0 2.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_51 Transform {
+  translation 1.0 1.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_1.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_52 Transform {
+  translation 2.0 1.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_53 Transform {
+  translation 3.0 1.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_54 Transform {
+  translation 4.0 1.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_60 Transform {
+  translation -1.0 2.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_0.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_71 Transform {
+  translation 1.0 0.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_72 Transform {
+  translation 2.0 0.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_73 Transform {
+  translation 3.0 0.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_74 Transform {
+  translation 4.0 0.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_90 Transform {
+  translation 0.0 -0.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_91 Transform {
+  translation 1.0 -0.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_92 Transform {
+  translation 2.0 -0.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_93 Transform {
+  translation 3.0 -0.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_94 Transform {
+  translation 4.0 -0.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_100 Transform {
+  translation -10.0 -1.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_101 Transform {
+  translation -9.0 -1.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_102 Transform {
+  translation -8.0 -1.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_103 Transform {
+  translation -7.0 -1.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_104 Transform {
+  translation -6.0 -1.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_110 Transform {
+  translation 0.0 -1.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_111 Transform {
+  translation 1.0 -1.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_112 Transform {
+  translation 2.0 -1.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_113 Transform {
+  translation 3.0 -1.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_114 Transform {
+  translation 4.0 -1.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_120 Transform {
+  translation -10.0 -2.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_121 Transform {
+  translation -9.0 -2.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_122 Transform {
+  translation -8.0 -2.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_123 Transform {
+  translation -7.0 -2.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_1.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_124 Transform {
+  translation -6.0 -2.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_140 Transform {
+  translation -10.0 -3.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_141 Transform {
+  translation -9.0 -3.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_142 Transform {
+  translation -8.0 -3.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_143 Transform {
+  translation -7.0 -3.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_144 Transform {
+  translation -6.0 -3.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_160 Transform {
+  translation -10.0 -4.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_161 Transform {
+  translation -9.0 -4.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_162 Transform {
+  translation -8.0 -4.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_163 Transform {
+  translation -7.0 -4.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_164 Transform {
+  translation -6.0 -4.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_174 Transform {
+  translation 4.0 -4.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_180 Transform {
+  translation -10.0 -5.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_181 Transform {
+  translation -9.0 -5.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_182 Transform {
+  translation -8.0 -5.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_183 Transform {
+  translation -7.0 -5.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_184 Transform {
+  translation -6.0 -5.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_194 Transform {
+  translation 4.0 -5.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_195 Transform {
+  translation 5.0 -5.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_200 Transform {
+  translation -10.0 -6.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_201 Transform {
+  translation -9.0 -6.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_202 Transform {
+  translation -8.0 -6.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_203 Transform {
+  translation -7.0 -6.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_204 Transform {
+  translation -6.0 -6.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_214 Transform {
+  translation 4.0 -6.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_215 Transform {
+  translation 5.0 -6.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_283 Transform {
+  translation -7.0 -10.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_1.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_284 Transform {
+  translation -6.0 -10.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_2.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_285 Transform {
+  translation -5.0 -10.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_286 Transform {
+  translation -4.0 -10.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_287 Transform {
+  translation -3.0 -10.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_303 Transform {
+  translation -7.0 -11.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_304 Transform {
+  translation -6.0 -11.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_305 Transform {
+  translation -5.0 -11.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_306 Transform {
+  translation -4.0 -11.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_307 Transform {
+  translation -3.0 -11.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_315 Transform {
+  translation 5.0 -11.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_316 Transform {
+  translation 6.0 -11.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_317 Transform {
+  translation 7.0 -11.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_318 Transform {
+  translation 8.0 -11.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_319 Transform {
+  translation 9.0 -11.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_323 Transform {
+  translation -7.0 -12.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_324 Transform {
+  translation -6.0 -12.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_325 Transform {
+  translation -5.0 -12.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_326 Transform {
+  translation -4.0 -12.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_327 Transform {
+  translation -3.0 -12.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_335 Transform {
+  translation 5.0 -12.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_336 Transform {
+  translation 6.0 -12.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_337 Transform {
+  translation 7.0 -12.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_338 Transform {
+  translation 8.0 -12.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_339 Transform {
+  translation 9.0 -12.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_355 Transform {
+  translation 5.0 -13.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_356 Transform {
+  translation 6.0 -13.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_357 Transform {
+  translation 7.0 -13.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_358 Transform {
+  translation 8.0 -13.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_359 Transform {
+  translation 9.0 -13.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_375 Transform {
+  translation 5.0 -14.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_376 Transform {
+  translation 6.0 -14.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_377 Transform {
+  translation 7.0 -14.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_378 Transform {
+  translation 8.0 -14.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_379 Transform {
+  translation 9.0 -14.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_395 Transform {
+  translation 5.0 -15.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_396 Transform {
+  translation 6.0 -15.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_397 Transform {
+  translation 7.0 -15.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_398 Transform {
+  translation 8.0 -15.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_399 Transform {
+  translation 9.0 -15.1 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_3.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_37 Transform {
+  translation 7.0 2.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_4.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}
+DEF TAG_36 Transform {
+  translation 6.0 2.9 0.45
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url ["../textures/apriltag_5.png"]
+        }
+        metalness 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+}

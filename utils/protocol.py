@@ -76,3 +76,25 @@ def parse_reached_ack(line):
         except ValueError:
             return None
     return None
+
+
+# Continuous path protocol (TCP, text-based)
+
+def send_path_command(sock, waypoints):
+    """Send full path to controller: 'PATH n x1 y1 x2 y2 ...\\n'"""
+    coords = ' '.join(f"{x} {y}" for x, y in waypoints)
+    msg = f"PATH {len(waypoints)} {coords}\n"
+    sock.sendall(msg.encode('utf-8'))
+
+def parse_path_command(line):
+    """Parse 'PATH n x1 y1 x2 y2 ...' -> [(x1,y1), ...] or None if invalid"""
+    parts = line.strip().split()
+    if len(parts) >= 3 and parts[0] == "PATH":
+        try:
+            n = int(parts[1])
+            coords = [float(p) for p in parts[2:]]
+            if len(coords) == n * 2:
+                return [(coords[i * 2], coords[i * 2 + 1]) for i in range(n)]
+        except (ValueError, IndexError):
+            pass
+    return None

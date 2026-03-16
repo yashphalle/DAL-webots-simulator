@@ -16,19 +16,24 @@ from robot_drivers import get_driver
 from utils.protocol import (
     POSITION_PORT, CAMERA_PORT, WAYPOINT_PORT,
     pack_position, pack_camera,
-    send_reached_ack, parse_waypoint_command,
+    send_reached_ack, parse_waypoint_command, parse_path_command,
     CAMERA_HEADER_SIZE
 )
 
 # Constants
 DISTANCE_TOLERANCE = 0.30  # meters
-SPEED = 5.0  # m/s
+SPEED = 10.0  # wheel rad/s (~0.5 m/s linear)
 TURN_GAIN = 8.0  # for differential drive
 TURN_THRESHOLD = 0.4  # radians
 
 # Navigation states
 STATE_IDLE = 0
 STATE_NAVIGATING = 1
+STATE_PATH_FOLLOWING = 2  # continuous path following with pure pursuit
+
+# Pure pursuit constants
+LOOKAHEAD_DISTANCE = 0.3     # meters — how far ahead on path to aim for
+WAYPOINT_SWITCH_DIST = 0.3   # meters — how close before advancing to next waypoint
 
 # Initialize Webots
 robot = Supervisor()
@@ -163,6 +168,22 @@ state = STATE_IDLE
 target_x = None
 target_y = None
 
+# Continuous path following state
+path = []
+path_idx = 0
+last_lookahead_idx = -1  # track lookahead changes for debug prints
+last_phase = ""           # track phase changes for debug prints
+
+
+def get_lookahead_point(robot_x, robot_y):
+    """Return (point, index) of first path point at least LOOKAHEAD_DISTANCE from robot, or the last point."""
+    for i in range(path_idx, len(path)):
+        dx = path[i][0] - robot_x
+        dy = path[i][1] - robot_y
+        if math.sqrt(dx * dx + dy * dy) >= LOOKAHEAD_DISTANCE:
+            return path[i], i
+    return path[-1], len(path) - 1
+
 print("\nWaiting for planner connection...")
 print("=" * 50)
 
@@ -191,19 +212,16 @@ while robot.step(timestep) != -1:
 
     # Stream camera over UDP (lower rate)
     cam_step += 1
-    if camera is not None and cam_step % 4 == 0:
+    if camera is not None and cam_step % 16 == 0:
         try:
             img = camera.getImage()
             if img:
-                raw = bytearray(cam_w * cam_h * 3)
-                for px in range(cam_w * cam_h):
-                    src = px * 4
-                    dst = px * 3
-                    raw[dst] = img[src + 2]
-                    raw[dst + 1] = img[src + 1]
-                    raw[dst + 2] = img[src]
-
-                payload = pack_camera(driver.ROBOT_ID, cam_w, cam_h, bytes(raw))
+                bgra = bytes(img)
+                r = bgra[2::4]
+                g = bgra[1::4]
+                b = bgra[0::4]
+                raw = bytes(val for rgb in zip(r, g, b) for val in rgb)
+                payload = pack_camera(driver.ROBOT_ID, cam_w, cam_h, raw)
                 if len(payload) <= MAX_CAM_UDP:
                     cam_sock.sendto(payload, CAM_ADDR)
         except Exception:
@@ -239,6 +257,14 @@ while robot.step(timestep) != -1:
                     # Look for complete lines
                     while '\n' in conn_buffer:
                         line, conn_buffer = conn_buffer.split('\n', 1)
+                        new_path = parse_path_command(line)
+                        if new_path:
+                            path = new_path
+                            path_idx = 0
+                            last_lookahead_idx = -1
+                            state = STATE_PATH_FOLLOWING
+                            print(f"[PATH] Received {len(path)} waypoints, starting at wp 1: {path[0]}")
+                            continue
                         waypoint = parse_waypoint_command(line)
                         if waypoint:
                             target_x, target_y = waypoint
@@ -301,5 +327,66 @@ while robot.step(timestep) != -1:
             if step_count % 100 == 0:
                 print(f"  Navigating: pos=({x:.2f},{y:.2f}) dist={distance:.2f}m "
                       f"angle={math.degrees(local_angle):.0f}deg")
+    elif state == STATE_PATH_FOLLOWING and path:
+        cx, cy = path[path_idx]
+        dist_to_current = math.sqrt((cx - x) ** 2 + (cy - y) ** 2)
+
+        # Final waypoint — stop when within tolerance
+        if path_idx == len(path) - 1 and dist_to_current < DISTANCE_TOLERANCE:
+            driver.stop()
+            print(f"[DONE] Path complete at ({x:.2f}, {y:.2f})")
+            if planner_conn is not None:
+                try:
+                    send_reached_ack(planner_conn, path[-1][0], path[-1][1])
+                except Exception as e:
+                    print(f"Failed to send ACK: {e}")
+            state = STATE_IDLE
+            path = []
+            path_idx = 0
+            last_lookahead_idx = -1
+        else:
+            # Advance path index when close enough — no stopping
+            if dist_to_current < WAYPOINT_SWITCH_DIST and path_idx < len(path) - 1:
+                path_idx += 1
+                last_lookahead_idx = -1  # force lookahead print on next step
+                last_phase = ""           # force phase print on next step
+                print(f"[SWITCH] wp {path_idx} → wp {path_idx + 1}: "
+                      f"now targeting ({path[path_idx][0]:.2f},{path[path_idx][1]:.2f}) "
+                      f"at pos=({x:.2f},{y:.2f})")
+
+            # Steer toward lookahead point
+            (lx, ly), la_idx = get_lookahead_point(x, y)
+            if la_idx != last_lookahead_idx:
+                last_lookahead_idx = la_idx
+                la_dist = math.sqrt((lx - x) ** 2 + (ly - y) ** 2)
+                print(f"[LOOK] Lookahead → wp {la_idx + 1} ({lx:.2f},{ly:.2f}) | dist={la_dist:.2f}m")
+
+            # Phase label — print only when phase changes
+            if path_idx == len(path) - 1:
+                phase = "FINAL APPROACH"
+            elif la_idx > path_idx:
+                phase = f"CURVING  (looking ahead to wp {la_idx + 1} while passing wp {path_idx + 1})"
+            else:
+                phase = f"APPROACHING wp {path_idx + 1} ({path[path_idx][0]:.2f},{path[path_idx][1]:.2f})"
+            if phase != last_phase:
+                last_phase = phase
+                print(f"[PHASE] {phase}")
+
+            dx = lx - x
+            dy = ly - y
+            world_angle = math.atan2(dy, dx)
+            local_angle = world_angle - heading
+
+            if is_youbot:
+                vx = SPEED * math.cos(local_angle)
+                vy = SPEED * math.sin(local_angle)
+                set_mecanum(vx, vy, 0)
+            else:
+                err = angle_diff(heading, world_angle)
+                turn = max(-SPEED, min(SPEED, -TURN_GAIN * err))
+                if abs(err) > TURN_THRESHOLD:
+                    set_differential(-turn, turn)
+                else:
+                    set_differential(SPEED + turn * 0.3, SPEED - turn * 0.3)
     elif state == STATE_IDLE:
         driver.stop()
