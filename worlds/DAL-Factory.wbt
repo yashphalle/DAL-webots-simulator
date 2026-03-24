@@ -339,14 +339,14 @@ DEF YOUBOT_1 Youbot {
   translation -7 -9.16 0.011
   rotation 0 0 1 1.5708
   name "youBot_1"
-  controller "<void>"
+  controller "waypoint_controller"
   supervisor TRUE
   bodySlot [
     Camera {
       translation 0.2 0 0.05
       fieldOfView 1.5708
-      width 1280
-      height 720
+      width 160
+      height 120
     }
     Lidar {
       translation 0.30 0 0.15
@@ -371,8 +371,8 @@ DEF YOUBOT_2 Youbot {
     Camera {
       translation 0.2 0 0.05
       fieldOfView 1.5708
-      width 1280
-      height 720
+      width 160
+      height 120
     }
     Lidar {
       translation 0.30 0 0.15
@@ -1994,17 +1994,17 @@ DEF CELL_TAG_399 Transform {
   ]
 }
 DEF YOUBOT_0 Youbot {
-  translation 7.01 3.79 0.099
+  translation 7.01 3.79 0.011
   rotation 0 0 1 1.5708
   name "youBot_0"
-  controller "<void>"
+  controller "waypoint_controller"
   supervisor TRUE
   bodySlot [
     Camera {
       translation 0.2 0 0.05
       fieldOfView 1.5708
-      width 1280
-      height 720
+      width 160
+      height 120
     }
     Lidar {
       translation 0.30 0 0.15

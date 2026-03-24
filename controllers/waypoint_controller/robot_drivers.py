@@ -1,9 +1,9 @@
 class YoubotDriver:
 
-    ROBOT_ID = 0
     BASE_SPEED = 10.0
 
-    def __init__(self, robot):
+    def __init__(self, robot, robot_id=0):
+        self.ROBOT_ID = robot_id
         self.w1 = robot.getDevice('wheel1')
         self.w2 = robot.getDevice('wheel2')
         self.w3 = robot.getDevice('wheel3')
@@ -58,10 +58,10 @@ class YoubotDriver:
 
 class PioneerDriver:
 
-    ROBOT_ID = 1
     BASE_SPEED = 5.0
 
-    def __init__(self, robot):
+    def __init__(self, robot, robot_id=1):
+        self.ROBOT_ID = robot_id
         self.fl = robot.getDevice('front left wheel')
         self.fr = robot.getDevice('front right wheel')
         self.bl = robot.getDevice('back left wheel')
@@ -107,10 +107,14 @@ class PioneerDriver:
 
 
 def get_driver(robot):
+    import re
     name = robot.getName()
+    m = re.search(r'(\d+)$', name)
+    robot_id = int(m.group(1)) if m else None
+
     if "youBot" in name or "Youbot" in name:
-        return YoubotDriver(robot)
+        return YoubotDriver(robot, robot_id if robot_id is not None else 0)
     elif "Pioneer" in name:
-        return PioneerDriver(robot)
+        return PioneerDriver(robot, robot_id if robot_id is not None else 1)
     else:
         raise RuntimeError(f"Unknown robot: '{name}'. Supported: Youbot, Pioneer3at.")

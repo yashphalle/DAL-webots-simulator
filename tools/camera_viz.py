@@ -23,15 +23,20 @@ print(f"Camera Viewer listening on UDP :{CAMERA_PORT}...")
 print("Press 'q' in the camera window to quit.")
 
 frame_count = 0
+timeout_count = 0
 
 try:
     while True:
         try:
-            data, _ = sock.recvfrom(65535)
+            data, addr = sock.recvfrom(65535)
             robot_id, width, height = unpack_camera_header(data)
             rgb_data = data[CAMERA_HEADER_SIZE:]
             expected_size = width * height * 3
+
+            print(f"[DEBUG] Packet: {len(data)} bytes | robot_id={robot_id} | {width}x{height} | rgb_bytes={len(rgb_data)} | expected={expected_size}")
+
             if len(rgb_data) < expected_size:
+                print(f"[DEBUG] DROPPED: rgb data too short ({len(rgb_data)} < {expected_size})")
                 continue
 
             img = np.frombuffer(rgb_data, dtype=np.uint8, count=expected_size)
@@ -50,7 +55,9 @@ try:
                 print(f"  Received {frame_count} frames from robot {robot_id} ({width}x{height})")
 
         except socket.timeout:
-            pass
+            timeout_count += 1
+            if timeout_count % 20 == 0:
+                print(f"[DEBUG] No data for {timeout_count * 0.1:.1f}s — is controller running and camera enabled?")
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break

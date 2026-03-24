@@ -123,7 +123,7 @@ if img:
 ### Step 4 — View the Camera Feed
 
 ```bash
-python tools/camera_viewer.py
+python tools/camera_viz.py
 ```
 
 ---

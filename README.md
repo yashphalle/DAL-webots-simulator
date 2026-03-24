@@ -14,8 +14,8 @@ Designed as a standardized base for robotics research studies. Study-specific co
 pip install -r requirements.txt
 ```
 
-1. Open `worlds/DAL.wbt` in Webots and press Play
-2. `python tools/visualizer.py`
+1. Open `worlds/DAL-Factory.wbt` in Webots and press Play
+2. `python tools/slam_viz.py dal-factory`
 3. Drive with keyboard (controller: `dal_controller`) or run `python planners/simple_planner.py` (controller: `waypoint_controller`)
 
 See [docs/getting_started.md](docs/getting_started.md) for full setup instructions.
@@ -36,9 +36,9 @@ DAL-webots-simulator/
 ├── planners/                   Run on HOST — mission logic
 │   └── simple_planner.py       Sequential hardcoded waypoints
 ├── tools/                      Run on HOST — monitoring (read-only)
-│   ├── visualizer.py           2D occupancy grid + robot positions
-│   ├── camera_viewer.py        Live camera feed window
-│   └── grid_visualization.py   Simple position-only grid overlay
+│   ├── slam_viz.py             2D occupancy grid + robot positions (LIDAR SLAM)
+│   ├── robot_pos_viz.py        Simple position-only grid overlay
+│   └── camera_viz.py           Live camera feed window
 ├── utils/                      Shared library (protocol, occupancy grid)
 │   ├── protocol.py             Ports, packet formats, message helpers
 │   └── occupancy_grid.py       Log-odds grid, Bresenham ray casting
@@ -84,7 +84,3 @@ DAL-webots-simulator/
 To start a new study, see [docs/branching_for_study.md](docs/branching_for_study.md).
 
 ---
-
-## Known Issues
-
-- Controllers still import `from dal.protocol` (old folder name). Until fixed, create a symlink: `ln -s utils dal` from the project root. See [docs/getting_started.md](docs/getting_started.md).

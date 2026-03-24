@@ -147,17 +147,17 @@ The `name` is whatever you set in the world file's `name` field.
 
 ## Step 5 — Update the Visualizer (optional)
 
-If you want the visualizer to show your new robot, add it to the `robots` dict in `tools/visualizer.py`:
+If you want the visualizer to show your new robot, add it to the `robots` section of your world config file in `world_configs/<world>.json`:
 
-```python
-robots = {
-    0: {"name": "Youbot",  "color": "red",   "x": 0.0, "y": 0.0, "heading": 0.0, "active": False},
-    1: {"name": "Pioneer", "color": "blue",  "x": 0.0, "y": 0.0, "heading": 0.0, "active": False},
-    2: {"name": "MyRobot", "color": "green", "x": 0.0, "y": 0.0, "heading": 0.0, "active": False},  # new
+```json
+"robots": {
+    "0": {"name": "Youbot",  "color": "red",   "marker": "o"},
+    "1": {"name": "Pioneer", "color": "blue",  "marker": "s"},
+    "2": {"name": "MyRobot", "color": "green", "marker": "^"}
 }
 ```
 
-Then add marker and heading line variables and update them in the `update()` function, following the same pattern as the existing robots.
+No Python code needs to change — the visualizers build markers dynamically from the config.
 
 ---
 

@@ -1,0 +1,11 @@
+# Webots project files — personal window layout, not shared
+worlds/.*.wbproj
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Generated
+*.npy
+map.png

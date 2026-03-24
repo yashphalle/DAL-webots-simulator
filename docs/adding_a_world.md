@@ -18,23 +18,29 @@ See [adding_a_robot.md](adding_a_robot.md) for full instructions. In brief:
 - `Add → PROTO nodes (Webots) → Robots → Kuka → KukaYouBot`
 - `Add → PROTO nodes (Webots) → Robots → Adept → Pioneer3AT`
 
-### Step 3 — Configure Floor Bounds
+### Step 3 — Create a World Config
 
-The visualizer and occupancy grid need to know the world floor bounds. These are currently hardcoded in `tools/visualizer.py`:
+The visualizers load world parameters from `world_configs/<key>.json`. Create a new config file for your world:
 
-```python
-FLOOR_WIDTH = 6.95
-FLOOR_HEIGHT = 22.54
-FLOOR_CENTER_X = 0.0
-FLOOR_CENTER_Y = 0.14
+```json
+{
+    "name": "MyWorld",
+    "floor_width": 10.0,
+    "floor_height": 10.0,
+    "floor_center_x": 0.0,
+    "floor_center_y": 0.0,
+    "grid_resolution": 0.25,
+    "lidar_max_range": 4.0,
+    "figure_size": [8, 8],
+    "robots": {
+        "0": {"name": "Youbot", "color": "red",  "marker": "o"}
+    }
+}
 ```
 
-Update these to match your new world. The values are in meters and define the rectangular region the grid covers:
-- `FLOOR_WIDTH`: total X extent
-- `FLOOR_HEIGHT`: total Y extent
-- `FLOOR_CENTER_X`, `FLOOR_CENTER_Y`: center of the floor in world coordinates
+Save as `world_configs/myworld.json`.
 
-To find these values: in Webots, click the floor object, and read its `translation` (center) and `size` (dimensions) from the scene tree.
+To find floor values: in Webots, click the floor object and read its `translation` (center) and `size` (dimensions) from the scene tree.
 
 ### Step 4 — Save
 
@@ -49,7 +55,7 @@ worlds/my_world.wbt
 
 The fastest approach for a new experiment.
 
-1. Copy `worlds/DAL.wbt` to `worlds/my_experiment.wbt`
+1. Copy `worlds/DAL-Factory.wbt` to `worlds/my_experiment.wbt`
 2. Open `my_experiment.wbt` in Webots
 3. Modify the environment as needed
 4. Webots will create a companion `worlds/.my_experiment.wbproj` automatically
@@ -97,26 +103,20 @@ For the simulator stack to work correctly, your world must have:
 | `WorldInfo.basicTimeStep` | Controls simulation speed and sensor update rate | Set to `32` (ms) for a good balance |
 | Robot `controller` field | Determines which Python script drives the robot | Set to controller folder name (e.g., `waypoint_controller`) |
 | LIDAR sensor enabled | Occupancy grid requires LIDAR | See [adding_a_sensor.md](adding_a_sensor.md) |
-| Unique robot `name` fields | `robot_drivers.py` uses the name to detect robot type | `"KukaYouBot"` for YouBot, `"Pioneer 3-AT"` for Pioneer |
+| Unique robot `name` fields | `robot_drivers.py` uses the name to detect type and derive ROBOT_ID from the trailing number | e.g. `"youBot_0"` → ID 0, `"youBot_1"` → ID 1 |
 
 ---
 
-## Updating Visualizer Floor Bounds for a New World
+## Updating Visualizer Config for a New World
 
-If your new world has different floor dimensions than `DAL.wbt`, update `tools/visualizer.py`:
+Create or edit the world's config file in `world_configs/`. See [using_visualizer.md](using_visualizer.md) for all available fields. Then run the visualizer with your config key:
 
-```python
-# Find these lines near the top and update:
-FLOOR_WIDTH = <your_floor_x_size>
-FLOOR_HEIGHT = <your_floor_y_size>
-FLOOR_CENTER_X = <your_floor_translation_x>
-FLOOR_CENTER_Y = <your_floor_translation_y>
+```bash
+python tools/slam_viz.py myworld
+python tools/robot_pos_viz.py myworld
 ```
 
-Also update `OccupancyGrid` resolution if needed:
-```python
-GRID_RESOLUTION = 0.15  # meters per cell — smaller = more detail, more memory
-```
+No Python code needs to be changed.
 
 ---
 
@@ -128,9 +128,11 @@ To run multiple robots simultaneously, each robot needs:
 2. A controller assigned (`waypoint_controller` for autonomous, `dal_controller` for teleop)
 3. A unique `ROBOT_ID` in its `robot_drivers.py` — this determines the TCP port
 
-| Robot | ROBOT_ID | TCP port |
-|-------|----------|----------|
-| YouBot | `0` | `6000` |
-| Pioneer | `1` | `6001` |
+| Robot name in world file | ROBOT_ID (auto-parsed) | TCP port |
+|--------------------------|------------------------|----------|
+| `youBot` or `youBot_0` | `0` | `6000` |
+| `youBot_1` | `1` | `6001` |
+| `youBot_2` | `2` | `6002` |
+| `Pioneer3at` | `1` (default) | `6001` |
 
-The visualizer already handles both robots simultaneously — no changes needed.
+ROBOT_ID is derived automatically from the trailing number in the robot's name — no code changes needed. Add the robot to the world config's `robots` dict to have it appear in the visualizer.

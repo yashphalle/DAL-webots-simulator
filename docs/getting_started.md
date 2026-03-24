@@ -36,16 +36,16 @@ Run the simulator with manual keyboard control. No planner needed.
 
 1. Open Webots
 2. `File → Open World...`
-3. Navigate to `worlds/DAL.wbt`
+3. Navigate to `worlds/DAL-Factory.wbt`
 4. Click the **Play** button (▶)
 
-You should see a factory floor with a KUKA YouBot and a Pioneer 3-AT.
+You should see a factory floor with three KUKA YouBots.
 
 ### Step 2 — Start the Visualizer
 
 In a terminal from the project root:
 ```bash
-python tools/visualizer.py
+python tools/slam_viz.py dal-factory
 ```
 
 A matplotlib window opens showing the 2D occupancy grid. It will start blank (gray) until a robot moves.
@@ -78,7 +78,7 @@ As you drive, the visualizer builds the occupancy grid from LIDAR data in real t
 
 In a second terminal:
 ```bash
-python tools/camera_viewer.py
+python tools/camera_viz.py
 ```
 
 Press `q` in the camera window to close it.
@@ -104,7 +104,7 @@ The controller will print `TCP server listening on port 6000` in the Webots cons
 ### Step 2 — Start the Visualizer (optional)
 
 ```bash
-python tools/visualizer.py
+python tools/slam_viz.py dal-factory
 ```
 
 ### Step 3 — Run the Planner
@@ -119,15 +119,19 @@ Expected output:
 Connecting to controller at localhost:6000...
 Connected!
 
-Waypoint list (4 waypoints):
-  1. (-1.00, 2.00)
-  2. (-1.00, 8.00)
-  3. (1.00, 5.00)
-  4. (2.00, 3.00)
+Waypoint list (8 waypoints):
+  1. (3.00, -5.00)
+  2. (3.00, 0.00)
+  3. (0.00, 3.00)
+  4. (-1.00, 4.00)
+  5. (-3.00, 0.00)
+  6. (-3.00, -5.00)
+  7. (0.00, -7.00)
+  8. (3.00, -7.00)
 
-[1/4] Sending waypoint: (-1.00, 2.00)
+[1/8] Sending waypoint: (3.00, -5.00)
   Waiting for robot to reach waypoint...
-  ✓ Robot reached (-1.00, 2.00)
+  ✓ Robot reached (3.00, -5.00)
 ...
 ```
 

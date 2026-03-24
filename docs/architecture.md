@@ -130,7 +130,7 @@ Both `<x>` and `<y>` are decimal floats in meters.
 
 | Robot ID | Model | Drive | LIDAR | Controller port |
 |----------|-------|-------|-------|-----------------|
-| `0` | KUKA YouBot | Mecanum (omni-directional) | LDS-01, 360°, 3.5 m | 6000 |
+| `0` | KUKA YouBot | Mecanum (omni-directional) | LDS-01, 360°, 5 m max | 6000 |
 | `1` | Pioneer 3-AT | Differential | Sick LMS 291, 180°, 8 m | 6001 |
 
 ---
@@ -154,8 +154,8 @@ Always start in this order to avoid connection errors:
 
 ```
 1. Start Webots (opens the world, initializes controller TCP servers)
-2. Start tools/visualizer.py (binds UDP port 5555, passive)
-3. Start tools/camera_viewer.py (binds UDP port 5556, passive)  [optional]
+2. Start tools/slam_viz.py <world>  OR  tools/robot_pos_viz.py <world>  (binds UDP 5555, passive)
+3. Start tools/camera_viz.py  (binds UDP 5556, passive)  [optional]
 4. Start planners/<your_planner>.py (connects TCP, starts sending waypoints)
 ```
 
@@ -173,10 +173,14 @@ controllers/waypoint_controller/waypoint_controller.py
 planners/simple_planner.py
   └── utils/protocol.py
 
-tools/visualizer.py
+tools/slam_viz.py
   └── utils/protocol.py
   └── utils/occupancy_grid.py
+  └── world_configs/<world>.json
 
-tools/camera_viewer.py
+tools/robot_pos_viz.py
+  └── world_configs/<world>.json
+
+tools/camera_viz.py
   └── utils/protocol.py
 ```

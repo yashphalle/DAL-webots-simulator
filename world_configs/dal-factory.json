@@ -1,0 +1,15 @@
+{
+    "name": "DAL-Factory",
+    "floor_width": 21.2,
+    "floor_height": 21.0,
+    "floor_center_x": 0.0,
+    "floor_center_y": -6.0,
+    "grid_resolution": 0.5,
+    "lidar_max_range": 4.8,
+    "figure_size": [10, 10],
+    "robots": {
+        "0": {"name": "Youbot_0", "color": "red",   "marker": "o"},
+        "1": {"name": "Youbot_1", "color": "blue",  "marker": "s"},
+        "2": {"name": "Youbot_2", "color": "green", "marker": "^"}
+    }
+}

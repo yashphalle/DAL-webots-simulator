@@ -1,0 +1,14 @@
+{
+    "name": "DAL2",
+    "floor_width": 6.95,
+    "floor_height": 22.54,
+    "floor_center_x": 0.0,
+    "floor_center_y": 0.14,
+    "grid_resolution": 0.25,
+    "lidar_max_range": 3.5,
+    "figure_size": [6, 18],
+    "robots": {
+        "0": {"name": "Youbot",  "color": "red",  "marker": "o"},
+        "1": {"name": "Pioneer", "color": "blue", "marker": "s"}
+    }
+}

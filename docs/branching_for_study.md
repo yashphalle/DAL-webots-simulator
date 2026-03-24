@@ -38,9 +38,9 @@ All study-specific work can live on this branch — keeping `main` free of study
 |---------------|-----------------|
 | Core controllers (`waypoint_controller`, `dal_controller`) | Study-specific controllers |
 | `utils/protocol.py`, `utils/occupancy_grid.py` | Extended protocol files (e.g., AprilTag messages) |
-| `tools/visualizer.py` (LIDAR grid) | Custom visualizers (e.g., Tkinter semantic grid) |
+| `tools/slam_viz.py`, `tools/robot_pos_viz.py`, `tools/camera_viz.py` | Custom visualizers (e.g., Tkinter semantic grid) |
 | `planners/simple_planner.py` | Study planner (`Helper.py`, `classes.py`, etc.) |
-| `worlds/DAL.wbt` | Study-specific worlds |
+| `worlds/DAL2.wbt` | Study-specific worlds |
 | Cross-platform dependencies only | Linux-only or study-specific deps (e.g., `spot`, `pupil-apriltags`) |
 | `requirements.txt` | `requirements_<study>.txt` |
 | `docs/` | `docs/<study>/` or study-specific README |
@@ -85,9 +85,9 @@ When your study is done or ready for others to use:
 DAL-webots-simulator/         (main branch)
 ├── controllers/              base controllers only
 ├── planners/                 simple_planner.py only
-├── tools/                    visualizer.py, camera_viewer.py
+├── tools/                    slam_viz.py, robot_pos_viz.py, camera_viz.py
 ├── utils/                    protocol.py, occupancy_grid.py
-├── worlds/                   DAL.wbt only
+├── worlds/                   DAL2.wbt only
 ├── docs/                     this documentation
 └── requirements.txt
 
@@ -112,7 +112,7 @@ DAL-webots-simulator/         (study/ltl-exploration branch — adds:)
 │   ├── factory.wbt
 │   ├── factory2.wbt
 │   ├── factory3.wbt
-│   └── factory4.wbt
+│   └── DAL-Factory.wbt
 ├── textures/
 │   └── apriltag_*.png
 ├── docs/ltl_study/

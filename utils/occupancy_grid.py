@@ -55,11 +55,12 @@ class OccupancyGrid:
         for i, r in enumerate(ranges):
             beam_angle = robot_heading + angle_min + i * angle_increment
 
-            if r <= 0 or math.isinf(r) or math.isnan(r):
+            if r <= 0 or math.isnan(r):
                 continue
 
-            hit_obstacle = r < max_range
-            cast_range = min(r, max_range)
+            # inf = beam reached max sensor range with no obstacle — still cast free space
+            hit_obstacle = not math.isinf(r) and r < max_range
+            cast_range = max_range if math.isinf(r) else min(r, max_range)
             end_x = robot_x + cast_range * math.cos(beam_angle)
             end_y = robot_y + cast_range * math.sin(beam_angle)
             end_col, end_row = self.world_to_grid(end_x, end_y)

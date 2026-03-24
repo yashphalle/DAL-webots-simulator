@@ -1,13 +1,21 @@
 ToDo:
-Documentation  How to create world, robot, planner, controller 
-Continous Waypoints algorithm 
+
+Adding Vizualizer custom mode for 2-3 robots
+Continous Waypoints algorithm  - Differntial Test
 ROS2 support branch
-
-
-Arm
+Arm grabbing codes
+Cell lock in planner for avoiding collision in multi robot
 
 Done:
+
+Documentation  How to create world, robot, planner, controller 
 Mutiple robots - Differntial/OmniDirectional Wheeled Robot
+
+Fixing world 4 - Check Controllers
+rename vis - SLAM lidar camera_viewer
+config files for world
+
+
 camera lidar
 Custom map generation
 
@@ -21,3 +29,10 @@ Default Controller - PID Controller - we can tune PID.
 Movement Commands - 1. Velocity Based  2. GPS coordinates waypoint 3. Teleop  4. Custom Controller for +x meter converting motor angle to m
 Planner - Need to write custom planner or check NavBase
 Drone
+
+
+Checklist:
+
+1) Run python3 continous planner.py
+2) Python3 tools/camera_viewer.py
+3) python3 tools/Vizualizer 

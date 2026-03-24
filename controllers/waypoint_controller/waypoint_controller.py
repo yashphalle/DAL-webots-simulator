@@ -215,7 +215,7 @@ while robot.step(timestep) != -1:
     if camera is not None and cam_step % 16 == 0:
         try:
             img = camera.getImage()
-            if img:
+            if img is not None and len(img) > 0:
                 bgra = bytes(img)
                 r = bgra[2::4]
                 g = bgra[1::4]
@@ -224,8 +224,15 @@ while robot.step(timestep) != -1:
                 payload = pack_camera(driver.ROBOT_ID, cam_w, cam_h, raw)
                 if len(payload) <= MAX_CAM_UDP:
                     cam_sock.sendto(payload, CAM_ADDR)
-        except Exception:
-            pass
+                else:
+                    if cam_step == 16:
+                        print(f"[CAM] Payload too large: {len(payload)} bytes (max {MAX_CAM_UDP}) — reduce camera resolution")
+            else:
+                if cam_step == 16:
+                    print(f"[CAM] getImage() returned empty/None — camera may not be rendering")
+        except Exception as e:
+            if cam_step <= 32:
+                print(f"[CAM] Exception sending camera: {e}")
 
     # Check for new planner connection (non-blocking)
     if planner_conn is None:
