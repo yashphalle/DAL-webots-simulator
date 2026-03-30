@@ -29,6 +29,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/stairs/protos/StraightStairsRail.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/stairs/protos/StraightStairs.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/kuka/youbot/protos/Youbot.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/adept/pioneer3/protos/Pioneer3at.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/devices/robotis/protos/RobotisLds01.proto"
 
 WorldInfo {
   contactProperties [
@@ -3899,6 +3901,24 @@ DEF TAG_36 Transform {
       geometry Box {
         size 0.3 0.3 0.3
       }
+    }
+  ]
+}
+DEF PIONEER_3 Pioneer3at {
+  translation 0 -2 0.1
+  rotation 0 0 1 0
+  name "Pioneer3at_3"
+  controller "waypoint_controller"
+  supervisor TRUE
+  extensionSlot [
+    RobotisLds01 {
+      translation 0 0 0.1
+    }
+    Camera {
+      translation 0.2 0 0.1
+      fieldOfView 1.5708
+      width 160
+      height 120
     }
   ]
 }

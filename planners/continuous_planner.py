@@ -13,19 +13,19 @@ from utils.protocol import (
     parse_reached_ack
 )
 
-ROBOT_ID = 0  # 0 = YouBot, 1 = Pioneer
+ROBOT_ID = 0  # 3 = Pioneer3at_3 (differential drive), 0 = YouBot (mecanum)
 HOST = 'localhost'
 
-# Full path sent at once — robot navigates continuously without stopping
+# Pioneer starts at (0, -2), facing +x.
+# Loop around the open centre of the factory to test continuous path following
+# with differential drive — includes straight segments and directional changes.
 WAYPOINTS = [
-    (3.0, -5.0),
-    (3.0,  0.0),
-    (0.0,  3.0),
-   (-1.0,  4.0),
-   (-3.0,  0.0),
-   (-3.0, -5.0),
-    (0.0, -7.0),
-    (3.0, -7.0),
+    ( 3.0, -2.0),
+    ( 3.0, -6.0),
+    ( 0.0, -9.0),
+    (-3.0, -6.0),
+    (-3.0, -2.0),
+    ( 0.0, -2.0),  # back to start
 ]
 
 

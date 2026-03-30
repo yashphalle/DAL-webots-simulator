@@ -22,8 +22,7 @@ from utils.protocol import (
 
 # Constants
 DISTANCE_TOLERANCE = 0.30  # meters
-SPEED = 10.0  # wheel rad/s (~0.5 m/s linear)
-TURN_GAIN = 8.0  # for differential drive
+TURN_GAIN = 8.0
 TURN_THRESHOLD = 0.4  # radians
 
 # Navigation states
@@ -41,6 +40,7 @@ timestep = int(robot.getBasicTimeStep())
 robot_node = robot.getSelf()
 robot_name = robot.getName()
 driver = get_driver(robot)
+SPEED = driver.BASE_SPEED  # YouBot=10.0, Pioneer=5.0
 
 print(f"\n=== Waypoint Controller [{robot_name}] ===")
 print(f"Robot ID: {driver.ROBOT_ID}")
@@ -325,7 +325,7 @@ while robot.step(timestep) != -1:
 
                 if abs(err) > TURN_THRESHOLD:
                     # Pure turning
-                    set_differential(-turn, turn)
+                    set_differential(turn, -turn)
                 else:
                     # Forward with arc
                     set_differential(SPEED + turn * 0.3, SPEED - turn * 0.3)
@@ -392,7 +392,7 @@ while robot.step(timestep) != -1:
                 err = angle_diff(heading, world_angle)
                 turn = max(-SPEED, min(SPEED, -TURN_GAIN * err))
                 if abs(err) > TURN_THRESHOLD:
-                    set_differential(-turn, turn)
+                    set_differential(turn, -turn)
                 else:
                     set_differential(SPEED + turn * 0.3, SPEED - turn * 0.3)
     elif state == STATE_IDLE:

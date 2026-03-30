@@ -8,8 +8,9 @@
     "lidar_max_range": 4.8,
     "figure_size": [10, 10],
     "robots": {
-        "0": {"name": "Youbot_0", "color": "red",   "marker": "o"},
-        "1": {"name": "Youbot_1", "color": "blue",  "marker": "s"},
-        "2": {"name": "Youbot_2", "color": "green", "marker": "^"}
+        "0": {"name": "Youbot_0",    "color": "red",    "marker": "o"},
+        "1": {"name": "Youbot_1",    "color": "blue",   "marker": "s"},
+        "2": {"name": "Youbot_2",    "color": "green",  "marker": "^"},
+        "3": {"name": "Pioneer3at_3","color": "purple", "marker": "D"}
     }
 }
