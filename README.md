@@ -16,7 +16,19 @@ pip install -r requirements.txt
 
 1. Open `worlds/DAL-Factory.wbt` in Webots and press Play
 2. `python tools/slam_viz.py dal-factory`
-3. Drive with keyboard (controller: `dal_controller`) or run `python planners/simple_planner.py` (controller: `waypoint_controller`)
+3. Drive with keyboard (controller: `dal_controller`) or run a planner (controller: `waypoint_controller`):
+
+```bash
+python planners/simple_planner.py              # sequential waypoints, default robot
+python planners/continuous_planner.py <robot_id>  # continuous path following
+```
+
+**Robot IDs:** `0` = YouBot (mecanum), `3` = Pioneer3at\_3 (differential drive)
+
+```bash
+python planners/continuous_planner.py 0   # run on YouBot
+python planners/continuous_planner.py 3   # run on Pioneer3at_3
+```
 
 See [docs/getting_started.md](docs/getting_started.md) for full setup instructions.
 
@@ -76,10 +88,6 @@ DAL-webots-simulator/
 ---
 
 ## Study Branches
-
-| Branch | Description | Extra deps |
-|--------|-------------|------------|
-| `study/ltl-exploration` | LTL temporal logic multi-robot exploration | `spot`, `buddy`, `pupil-apriltags` (Linux) |
 
 To start a new study, see [docs/branching_for_study.md](docs/branching_for_study.md).
 

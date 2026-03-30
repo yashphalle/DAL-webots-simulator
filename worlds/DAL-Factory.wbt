@@ -364,7 +364,7 @@ DEF YOUBOT_1 Youbot {
   ]
 }
 DEF YOUBOT_2 Youbot {
-  translation 2.97 -7.11 0.011
+  translation 4.97 -7.11 0.011
   rotation 0 0 1 1.5708
   name "youBot_2"
   controller "waypoint_controller"

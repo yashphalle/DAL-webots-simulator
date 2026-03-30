@@ -1,5 +1,3 @@
-"""Continuous planner: sends full path at once, robot follows without stopping."""
-
 import sys
 import os
 import socket
@@ -13,7 +11,6 @@ from utils.protocol import (
     parse_reached_ack
 )
 
-ROBOT_ID = 0  # 3 = Pioneer3at_3 (differential drive), 0 = YouBot (mecanum)
 HOST = 'localhost'
 
 # Pioneer starts at (0, -2), facing +x.
@@ -30,8 +27,15 @@ WAYPOINTS = [
 
 
 def main():
-    port = WAYPOINT_PORT + ROBOT_ID
+    if len(sys.argv) < 2:
+        print("Usage: python continuous_planner.py <robot_id>")
+        print("  robot_id: 0 = YouBot (mecanum), 3 = Pioneer3at_3 (differential drive)")
+        sys.exit(1)
+
+    robot_id = int(sys.argv[1])
+    port = WAYPOINT_PORT + robot_id
     print(f"=== Continuous Planner ===")
+    print(f"Robot ID: {robot_id}")
     print(f"Connecting to controller at {HOST}:{port}...")
 
     try:

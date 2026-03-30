@@ -1,13 +1,15 @@
 ToDo:
 
-Adding Vizualizer custom mode for 2-3 robots
-Continous Waypoints algorithm  - Differntial Test
 ROS2 support branch
+Landing on ground robot
+Drone camera
+
+
 Arm grabbing codes
 Cell lock in planner for avoiding collision in multi robot
 
 Done:
-
+Continous Waypoints algorithm  - Differntial Test
 Documentation  How to create world, robot, planner, controller 
 Mutiple robots - Differntial/OmniDirectional Wheeled Robot
 
